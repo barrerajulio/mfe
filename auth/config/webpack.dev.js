@@ -7,21 +7,21 @@ const commonConfig = require("./webpack.common");
 
 const devConfig = {
   mode: "development",
-  output: {
-    publicPath: "http://localhost:8081/",
-  },
   devServer: {
-    port: 8081,
+    port: 8082,
     historyApiFallback: {
       index: "index.html",
     },
   },
+  output: {
+    publicPath: "http://localhost:8082/",
+  },
   plugins: [
     new ModuleFederationPlugin({
-      name: "marketing",
+      name: "auth",
       filename: "remoteEntry.js",
       exposes: {
-        "./MarketingApp": "./src/bootstrap",
+        "./AuthApp": "./src/bootstrap",
       },
       shared: packageJson.dependencies,
     }),

@@ -21,7 +21,7 @@ const mount = (el, { defaultHistory, onNavigate, initialPath }) => {
 };
 
 if (process.env.NODE_ENV === "development") {
-  const devRoot = document.querySelector("#_marketing-dev-root");
+  const devRoot = document.querySelector("#_auth-dev-root");
   devRoot &&
     mount(devRoot, {
       onNavigate: () => {},

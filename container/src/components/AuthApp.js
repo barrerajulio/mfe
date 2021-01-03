@@ -1,13 +1,13 @@
 import React, { useEffect, useRef } from "react";
-import { mount } from "marketing/MarketingApp";
+import { mount } from "auth/AuthApp";
 import { useHistory } from "react-router-dom";
 
 export default () => {
-  const refToMount = useRef(null);
+  const ref = useRef();
   const history = useHistory();
 
   useEffect(() => {
-    const { onParentNavigate } = mount(refToMount.current, {
+    const { onParentNavigate } = mount(ref.current, {
       onNavigate: ({ pathname: nextPathname }) => {
         const { pathname } = history.location;
         pathname !== nextPathname && history.push(nextPathname);
@@ -16,5 +16,5 @@ export default () => {
     });
     history.listen(onParentNavigate);
   }, []);
-  return <div ref={refToMount} />;
+  return <div ref={ref} />;
 };
