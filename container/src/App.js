@@ -29,6 +29,7 @@ export default () => {
         <div>
           <Header signedIn={isSignIn} onSignOut={() => setIsSignIn(false)} />
           <Suspense fallback={<Progress />}>
+            <h1>Welcome to my bussines</h1>
             <Switch>
               <Route path="/auth">
                 <AuthLazy onSignIn={() => setIsSignIn(true)} />
